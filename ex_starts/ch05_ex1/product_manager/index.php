@@ -51,5 +51,22 @@ if ($action == 'list_products') {
         add_product($category_id, $code, $name, $price);
         header("Location: .?category_id=$category_id");
     }
-}    
+} elseif($action=='list_categories'){
+    $categories=get_categories();
+    include('category_list.php'); 
+}   elseif($action=='add_category'){
+    $name=filter_input(INPUT_POST,'name');
+    
+    if($name==NULL){
+        $error='ko tim thay category';
+        include('../errors/error.php');
+    }else{
+        add_category($name);
+        header('Location: .?action=list_categories');
+    }
+}elseif($action=='delete_category'){
+    $category_id=filter_input(INPUT_POST,'category_id',FILTER_VALIDATE_INT);
+    delete_category($category_id);
+    header('Location: .?action=list_categories');
+}
 ?>

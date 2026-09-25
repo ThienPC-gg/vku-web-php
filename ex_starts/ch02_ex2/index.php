@@ -1,8 +1,7 @@
 <?php 
-    //set default value of variables for initial page load
-    if (!isset($investment)) { $investment = ''; } 
-    if (!isset($interest_rate)) { $interest_rate = ''; } 
-    if (!isset($years)) { $years = ''; } 
+    if (!isset($investment)) { $investment= ''; } 
+    if (!isset($interest_rate)) { $interest_rate= ''; } 
+    if (!isset($years)) { $years= ''; } 
 ?> 
 <!DOCTYPE html>
 <html>
