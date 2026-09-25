@@ -1,7 +1,6 @@
 <?php
 require_once('database.php');
 
-// Get category ID
 if (!isset($category_id)) {
     $category_id = filter_input(INPUT_GET, 'category_id', 
             FILTER_VALIDATE_INT);
@@ -9,7 +8,7 @@ if (!isset($category_id)) {
         $category_id = 1;
     }
 }
-// Get name for selected category
+
 $queryCategory = 'SELECT * FROM categories
                   WHERE categoryID = :category_id';
 $statement1 = $db->prepare($queryCategory);
@@ -20,7 +19,6 @@ $category_name = $category['categoryName'];
 $statement1->closeCursor();
 
 
-// Get all categories
 $query = 'SELECT * FROM categories
                        ORDER BY categoryID';
 $statement = $db->prepare($query);
@@ -28,7 +26,6 @@ $statement->execute();
 $categories = $statement->fetchAll();
 $statement->closeCursor();
 
-// Get products for selected category
 $queryProducts = 'SELECT * FROM products
                   WHERE categoryID = :category_id
                   ORDER BY productID';
@@ -41,20 +38,17 @@ $statement3->closeCursor();
 <!DOCTYPE html>
 <html>
 
-<!-- the head section -->
 <head>
     <title>My Guitar Shop</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 
-<!-- the body section -->
 <body>
 <header><h1>Product Manager</h1></header>
 <main>
     <h1>Product List</h1>
 
     <aside>
-        <!-- display a list of categories -->
         <h2>Categories</h2>
         <nav>
         <ul>
@@ -69,7 +63,6 @@ $statement3->closeCursor();
     </aside>
 
     <section>
-        <!-- display a table of products -->
         <h2><?php echo $category_name; ?></h2>
         <table>
             <tr>
@@ -95,7 +88,7 @@ $statement3->closeCursor();
             <?php endforeach; ?>
         </table>
         <p><a href="add_product_form.php">Add Product</a></p>
-        <p><a href="category_list.php">List Categories</a></p>        
+        <p><a href="category_list.php">List Categories</a></p>
     </section>
 </main>
 <footer>

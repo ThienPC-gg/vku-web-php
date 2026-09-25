@@ -104,18 +104,18 @@ br {
 /********************************************************************
 * Additional styles for the Product Manager application
 ********************************************************************/
-#add_product_form {
+#add_product_form, #add_category_form, #update_category_form {
     margin: .5em 0 1em;
 }
-#add_product_form label {
+#add_product_form label, #add_category_form label, #update_category_form label {
     width: 6em;
     padding-right: 1em;
     padding-bottom: .5em;
     float: left;
 }
-#add_product_form input {
+#add_product_form input, #add_category_form input, #update_category_form input, #update_category_form select {
     float: left;
 }
-#add_product_form input[text] {
+#add_product_form input[text], #add_category_form input[type="text"], #update_category_form input[type="text"] {
     width: 15em;
 }
