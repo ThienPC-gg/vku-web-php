@@ -30,7 +30,7 @@
             <tr>
                 <td><?php echo $product->getCode(); ?></td>
                 <td><?php echo $product->getName(); ?></td>
-                <td class="right"><?php echo $product->getPriceFormatted(); ?>
+                <td class="right"><?php echo $product->getPrice(); ?>
                 </td>
                 <td><form action="." method="post"
                           id="delete_product_form">

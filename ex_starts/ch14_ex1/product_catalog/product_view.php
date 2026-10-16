@@ -24,7 +24,7 @@
             </p>
         </div>
         <div id="right_column">
-            <p><b>List Price:</b> $<?php echo $product->getPriceFormatted(); ?></p>
+            <p><b>List Price:</b> $<?php echo $product->getPrice(); ?></p>
             <p><b>Discount:</b> <?php echo $product->getDiscountPercent(); ?>%</p>
             <p><b>Your Price:</b> $<?php echo $product->getDiscountPrice(); ?>
                  (You save $<?php echo $product->getDiscountAmount(); ?>)</p>
