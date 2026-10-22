@@ -35,6 +35,24 @@ function get_product($product_id) {
     }
 }
 
+function get_product_by_name($name) {
+    global $db;
+    $query = 'SELECT *
+              FROM products
+              WHERE productName = :name';
+    try {
+        $statement = $db->prepare($query);
+        $statement->bindValue(':name', $name);
+        $statement->execute();
+        $result = $statement->fetch();
+        $statement->closeCursor();
+        return $result;
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
+}
+
 function add_product($category_id, $code, $name, $description,
         $price, $discount_percent) {
     global $db;
