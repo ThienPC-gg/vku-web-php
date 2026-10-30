@@ -1,0 +1,17 @@
+{
+  "PHP MySQL Connect": {
+    "scope": "php,html,hack",
+    "prefix": ["<connect", "connect"],
+    "body": [
+      "<?php",
+      "\\$server = \\$_SERVER['SERVER_NAME'] ?? 'localhost';",
+      "\\$user = \"root\";",
+      "\\$pass = \"\";",
+      "\\$db = \"${1:udn}\";",
+      "\\$con = mysqli_connect(\\$server, \\$user, \\$pass, \\$db);",
+      "mysqli_query(\\$con, \"set names 'utf8'\");",
+      "?>"
+    ],
+    "description": "Tự động tạo đoạn mã kết nối MySQL"
+  }
+}
